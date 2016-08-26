@@ -18,6 +18,19 @@
   when: ansible_pkg_mgr == "yum"
 
 
+- name: change TD_AGENT_USER
+  lineinfile:
+    dest: /etc/init.d/td-agent
+    regexp: "^TD_AGENT_USER=td-agent$"
+    line: TD_AGENT_USER=root
+  notify: td-agent restart
+
+- name: change TD_AGENT_GROUP
+  lineinfile:
+    dest: /etc/init.d/td-agent
+    regexp: "^TD_AGENT_GROUP=td-agent$"
+    line: TD_AGENT_GROUP=root
+  notify: td-agent restart
 
 
 - name: mkdir for conf.d
