@@ -23,14 +23,14 @@
     dest: /etc/init.d/td-agent
     regexp: "^TD_AGENT_USER=td-agent$"
     line: TD_AGENT_USER=root
-  notify: td-agent restart
+  notify: restart td-agent
 
 - name: change TD_AGENT_GROUP
   lineinfile:
     dest: /etc/init.d/td-agent
     regexp: "^TD_AGENT_GROUP=td-agent$"
     line: TD_AGENT_GROUP=root
-  notify: td-agent restart
+  notify: restart td-agent
 
 
 - name: mkdir for conf.d
